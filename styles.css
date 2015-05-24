@@ -1,0 +1,232 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background: url("http://ak.picdn.net/shutterstock/videos/5331479/preview/stock-footage-falling-colorful-confetti-on-white-background-hq-seamless-looping-animation-with-alpha-channel.jpg");
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.cards-container {
+   font-family: "Lato", sans-serif;
+}
+
+.face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: visible;
+    -webkit-transition: all 0.5s ease-out;
+    -webkit-transform-origin: 0 0;
+}
+
+.card {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    cursor: pointer;
+}
+
+.front {
+  z-index: 2;
+}
+
+.front img {
+  width: 100%;
+  height: 100vh;
+}
+
+.solid {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background: gray;
+}
+
+.back {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("http://cdn.mdjunction.com/components/com_joomlaboard/uploaded/images/taco_bell_baby_costume.jpg");
+    background-size: cover;
+    -webkit-transform: rotateY(0deg);
+    z-index: 1;
+    color: white;
+    position: relative;
+}
+
+.back h3.tacos {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.back p.message {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  text-align: center;
+  font-size: 3.2em;
+  line-height: 3ex;
+}
+
+.flip {
+    -webkit-transform: rotateY(-180deg);
+}
+
+.z-up {
+  z-index: 2;
+}
+
+.dancing-taco {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+
+  .cards-container {
+     padding-top: 8%;
+  }
+  .card {
+      width: 480px;
+      height: 480px;
+      position: relative;
+      -webkit-perspective: 700;
+
+      /* float: left; */
+      margin: 30px auto;
+  }
+
+   .card:active .face {
+      -webkit-transition: all 0.25s ease-out;
+  }
+
+  .front {
+      -webkit-transform: rotateY(-20deg);
+  }
+
+  .front img {
+    width: 480px;
+    height: 480px;
+  }
+
+  .back h3.tacos {
+    font-size: 1.9em;
+  }
+
+  .back p.message {
+    font-size: 1.3em;
+  }
+
+  .card:active .front {
+      -webkit-transform: rotateY(-35deg);
+  }
+  .flip{
+      -webkit-transform: rotateY(-165deg);
+  }
+
+  .dancing-taco {
+    position: absolute;
+    right: 6%;
+    top: 32%;
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Animating the Taco Dancer */
+
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .animated.bounceIn {
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+  }
+
+  @-webkit-keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+  @keyframes bounceInDown {
+    0%, 60%, 75%, 90%, 100% {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -3000px, 0);
+      transform: translate3d(0, -3000px, 0);
+    }
+
+    60% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 25px, 0);
+      transform: translate3d(0, 25px, 0);
+    }
+
+    75% {
+      -webkit-transform: translate3d(0, -10px, 0);
+      transform: translate3d(0, -10px, 0);
+    }
+
+    90% {
+      -webkit-transform: translate3d(0, 5px, 0);
+      transform: translate3d(0, 5px, 0);
+    }
+
+    100% {
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  .bounceInDown {
+    -webkit-animation-name: bounceInDown;
+    animation-name: bounceInDown;
+  }
+
+}
